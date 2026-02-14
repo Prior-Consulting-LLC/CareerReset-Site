@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — 6-Week Career Reset</title>
+  <meta name="description" content="Get help with the 6-Week Career Reset app. FAQs, troubleshooting, and contact information.">
+  <link rel="canonical" href="https://sixweekreset.app/support">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #652265;
+      --purple-light: #9b5e9b;
+      --purple-pale: #f3e8f3;
+      --purple-wash: #faf5fa;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a4a5e;
+      --text-light: #8a8a9e;
+      --white: #ffffff;
+      --off-white: #fefcfe;
+      --font-display: 'Crimson Pro', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--off-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--purple-deep);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .page-header {
+      background: linear-gradient(170deg, #1a0a2e, var(--purple-deep));
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .page-header p {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--purple-wash);
+      border: 1px solid rgba(101, 34, 101, 0.12);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-email {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--purple-deep);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 100px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-email:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(101, 34, 101, 0.25);
+    }
+
+    .contact-response {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* ── FAQ ── */
+    .faq-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(101, 34, 101, 0.1);
+      padding: 1.25rem 0;
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid rgba(101, 34, 101, 0.1);
+    }
+
+    .faq-question {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--purple-light);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding-top: 0.75rem;
+    }
+
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-answer p:last-child { margin-bottom: 0; }
+
+    /* ── TROUBLESHOOTING ── */
+    .troubleshooting {
+      margin-top: 3rem;
+    }
+
+    .troubleshooting h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    .tip {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(101, 34, 101, 0.08);
+    }
+
+    .tip:first-of-type {
+      border-top: 1px solid rgba(101, 34, 101, 0.08);
+    }
+
+    .tip-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--purple-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .tip h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .tip p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--text-primary);
+      color: rgba(255, 255, 255, 0.5);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: rgba(255, 255, 255, 0.8); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .content { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">6-Week Career Reset</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/support.html">Support</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Support</h1>
+  <p>We're here to help you get the most from your career reset journey.</p>
+</div>
+
+<div class="content">
+
+  <!-- CONTACT -->
+  <div class="contact-card">
+    <h2>Need help? Get in touch.</h2>
+    <p>Whether it's a technical issue or a question about the program, we'd love to hear from you.</p>
+    <a href="mailto:support@sixweekreset.app" class="contact-email">support@sixweekreset.app</a>
+    <p class="contact-response">We typically respond within 24 hours.</p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">What do I get for free?</div>
+      <div class="faq-answer">
+        <p>Week 1 (Vision) is completely free, including all three Experiences, journaling prompts, and access to the AI Career Coach. This lets you experience the full framework before deciding to continue.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What does the full program include?</div>
+      <div class="faq-answer">
+        <p>The full program unlocks Weeks 2 through 6, giving you access to all 18 guided Experiences, comprehensive assessments, the Vision Board creator, weekly AI-guided reflection sessions, and the ability to export your complete journey.</p>
+        <p>It's a one-time purchase of $24.99 — no subscriptions or recurring charges.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How does the AI Career Coach work?</div>
+      <div class="faq-answer">
+        <p>The AI Career Coach is powered by advanced AI that understands the VIEW Framework. It reads your journal entries and assessment responses (with your permission) to provide personalized insights and guidance specific to your career situation.</p>
+        <p>Think of it as a coaching conversation — you share your thoughts, and the coach helps you see patterns, ask better questions, and identify actionable next steps.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is my data private?</div>
+      <div class="faq-answer">
+        <p>Yes. Your journal entries, reflections, and assessment results are stored on your device. They are not uploaded to our servers. When you use the AI Coach, your conversation text is processed securely but is not stored after the session. See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I use this without the physical book?</div>
+      <div class="faq-answer">
+        <p>Absolutely. The app is a complete, standalone program. While it's based on Lisa Prior's book <em>Take Charge of Your VIEW</em>, you don't need the book to benefit from the app. Everything you need is built into the 6-week experience.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How long does the program take?</div>
+      <div class="faq-answer">
+        <p>The program is structured as a 6-week journey, with three Experiences per week. Most people spend 20-30 minutes per Experience. You can go at your own pace — faster or slower — but the weekly structure helps ideas develop naturally between sessions.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I restore my purchase on a new device?</div>
+      <div class="faq-answer">
+        <p>Yes. Since the full program is a non-consumable in-app purchase, you can restore it on any device signed in to the same Apple ID. Go to Settings within the app and tap "Restore Purchases."</p>
+        <p>Note: Journal entries and personal data are stored locally and will need iCloud sync enabled to transfer between devices.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What's the relationship between the app and the book?</div>
+      <div class="faq-answer">
+        <p>The app brings Lisa Prior's <em>Take Charge of Your VIEW</em> (2nd Edition) to life as an interactive experience. It follows the same framework and structure, but adds interactive worksheets that save your progress, AI-powered coaching, progress tracking, and tools like text-to-speech and export that a printed book can't offer.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TROUBLESHOOTING -->
+  <div class="troubleshooting">
+    <h2>Troubleshooting</h2>
+
+    <div class="tip">
+      <div class="tip-icon">🔄</div>
+      <div>
+        <h3>AI Coach not responding</h3>
+        <p>Check your internet connection — the AI Coach requires an active connection to work. If you're connected and still having issues, try closing and reopening the app.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">💾</div>
+      <div>
+        <h3>Worried about losing your journal entries?</h3>
+        <p>Your data is saved locally on your device automatically. For backup across devices, enable iCloud sync in the app settings. We recommend keeping iCloud sync on for peace of mind.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🛒</div>
+      <div>
+        <h3>Purchase not showing up</h3>
+        <p>If you've purchased the full program but it's not unlocked, go to Settings in the app and tap "Restore Purchases." Make sure you're signed in with the same Apple ID used for the purchase.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🔔</div>
+      <div>
+        <h3>Not receiving reminders</h3>
+        <p>Make sure notifications are enabled for the app in your iPhone Settings → Notifications → 6-Week Career Reset. You can customize reminder times within the app's settings.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 Lisa Prior / Prior Consulting. All rights reserved. &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="/privacy.html">Privacy</a></p>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      // Toggle clicked
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

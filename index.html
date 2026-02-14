@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6-Week Career Reset — Take Charge of Your VIEW</title>
+  <meta name="description" content="Your personal AI-powered career development coach. A structured 6-week journey based on Lisa Prior's acclaimed VIEW Framework.">
+  <meta property="og:title" content="6-Week Career Reset">
+  <meta property="og:description" content="Transform your career in 6 weeks with the proven VIEW Framework. AI-powered coaching, interactive exercises, and a structured path forward.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sixweekreset.app">
+  <link rel="canonical" href="https://sixweekreset.app">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #652265;
+      --purple-mid: #7a3a7a;
+      --purple-light: #9b5e9b;
+      --purple-pale: #f3e8f3;
+      --purple-wash: #faf5fa;
+      --gold: #d4a843;
+      --gold-light: #e8c96e;
+      --sky-top: #1a0a2e;
+      --sky-mid: #3d1f5c;
+      --sky-bottom: #652265;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a4a5e;
+      --text-light: #8a8a9e;
+      --white: #ffffff;
+      --off-white: #fefcfe;
+      --font-display: 'Crimson Pro', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--off-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(101, 34, 101, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(101, 34, 101, 0.3);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+      background: linear-gradient(170deg, var(--sky-top) 0%, var(--sky-mid) 40%, var(--sky-bottom) 70%, #8a4a8a 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(212, 168, 67, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(155, 94, 155, 0.15) 0%, transparent 50%);
+    }
+
+    .hero-stars {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 30% 25%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.35), transparent),
+        radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(1px 1px at 15% 40%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 92% 12%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.15), transparent);
+      animation: twinkle 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(212, 168, 67, 0.4);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.8s ease-out 0.15s both;
+    }
+
+    .hero h1 strong {
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      animation: fadeUp 0.8s ease-out 0.3s both;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: var(--white);
+      color: var(--purple-deep);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.8s ease-out 0.45s both;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-cta svg { width: 20px; height: 20px; }
+
+    .hero-free {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      animation: fadeUp 0.8s ease-out 0.55s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title strong { font-weight: 700; color: var(--purple-deep); }
+
+    /* ── PROBLEM SECTION ── */
+    .problem {
+      background: var(--white);
+      border-bottom: 1px solid rgba(101, 34, 101, 0.08);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    .problem-text p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .problem-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .problem-card {
+      padding: 1.25rem 1.5rem;
+      background: var(--purple-wash);
+      border-left: 3px solid var(--purple-deep);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-style: italic;
+      font-family: var(--font-display);
+      font-weight: 400;
+    }
+
+    /* ── JOURNEY SECTION ── */
+    .journey { background: var(--purple-wash); }
+
+    .weeks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .week-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(101, 34, 101, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .week-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(101, 34, 101, 0.1);
+    }
+
+    .week-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .week-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--purple-deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .week-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .week-free-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--text-primary);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 100px;
+    }
+
+    /* ── FEATURES ── */
+    .features { background: var(--white); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--purple-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple-deep);
+    }
+
+    .feature-icon svg { width: 22px; height: 22px; }
+
+    .feature h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .feature p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── AUTHOR ── */
+    .author {
+      background: linear-gradient(170deg, var(--purple-deep) 0%, var(--sky-mid) 100%);
+      color: var(--white);
+    }
+
+    .author .section-label { color: var(--gold-light); }
+
+    .author .section-title { color: var(--white); }
+    .author .section-title strong { color: var(--gold-light); }
+
+    .author-content {
+      max-width: 680px;
+      margin-top: 1.5rem;
+    }
+
+    .author-content p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .author-book {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      font-style: italic;
+      font-family: var(--font-display);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--purple-wash);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .cta-section .section-title { margin-bottom: 1rem; }
+
+    .cta-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: var(--purple-deep);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(101, 34, 101, 0.3);
+    }
+
+    .cta-button svg { width: 20px; height: 20px; }
+
+    .cta-price {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-primary);
+      color: rgba(255, 255, 255, 0.5);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255, 255, 255, 0.8); }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .weeks { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.5rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 90vh; padding: 5rem 1.25rem 3rem; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-brand">6-Week Career Reset</a>
+  <div class="nav-links">
+    <a href="#journey">The Journey</a>
+    <a href="#features">Features</a>
+    <a href="/support.html">Support</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-stars"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Based on the acclaimed VIEW Framework</div>
+    <h1>Your career clarity is <strong>6 weeks away</strong></h1>
+    <p class="hero-sub">An interactive, AI-powered career development program based on Lisa Prior's proven methodology. Structured guidance, personal reflection, and coaching that adapts to your unique journey.</p>
+    <a href="https://apps.apple.com/app/6-week-career-reset/id0000000000" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+      Download on the App Store
+    </a>
+    <span class="hero-free">Week 1 is free — no commitment required</span>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">Sound familiar?</div>
+    <div class="section-title">Career development shouldn't feel like <strong>guesswork</strong></div>
+    <div class="problem-grid">
+      <div class="problem-text">
+        <p>You know you want more from your work life, but the path forward feels unclear. Maybe you're stuck in a role that no longer fits, or you're ready for a change but don't know where to start.</p>
+        <p>The 6-Week Career Reset replaces uncertainty with a proven, structured framework. Each week builds on the last, guiding you from vision to action with interactive exercises and AI-powered coaching that responds to your unique situation.</p>
+      </div>
+      <div class="problem-cards">
+        <div class="problem-card">"I feel stuck but don't know what I actually want."</div>
+        <div class="problem-card">"I know my strengths but can't articulate them."</div>
+        <div class="problem-card">"I want to grow but don't have a plan."</div>
+        <div class="problem-card">"I need to talk to my boss but don't know how."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="container">
+    <div class="section-label">The 6-Week Journey</div>
+    <div class="section-title">A proven path from <strong>vision to action</strong></div>
+    <div class="weeks">
+      <div class="week-card">
+        <div class="week-number">Week 1</div>
+        <h3>Vision</h3>
+        <p>Explore your story, visualize your future, and craft a personal vision statement that captures who you want to become.</p>
+        <span class="week-free-badge">Free to try</span>
+      </div>
+      <div class="week-card">
+        <div class="week-number">Week 2</div>
+        <h3>Insight</h3>
+        <p>Identify your signature strengths, understand what energizes you, and discover patterns in your best-self moments.</p>
+      </div>
+      <div class="week-card">
+        <div class="week-number">Week 3</div>
+        <h3>Engagement</h3>
+        <p>Align your aspirations with real opportunities and create a concrete development plan with actionable next steps.</p>
+      </div>
+      <div class="week-card">
+        <div class="week-number">Week 4</div>
+        <h3>Will</h3>
+        <p>Name your biggest career goal, identify obstacles standing in your way, and build your support network.</p>
+      </div>
+      <div class="week-card">
+        <div class="week-number">Week 5</div>
+        <h3>Recruit Your Boss</h3>
+        <p>Prepare for meaningful career conversations with your manager using proven frameworks and practice tools.</p>
+      </div>
+      <div class="week-card">
+        <div class="week-number">Week 6</div>
+        <h3>VIEW for Life</h3>
+        <p>Establish ongoing practices to sustain your growth and make career development a lifelong habit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-label">More than a book</div>
+    <div class="section-title">Interactive tools that <strong>meet you where you are</strong></div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <div>
+          <h3>AI Career Coach</h3>
+          <p>Get personalized insights based on your actual journal entries. The AI analyzes patterns and offers guidance grounded in the VIEW Framework.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        </div>
+        <div>
+          <h3>18 Guided Experiences</h3>
+          <p>Interactive exercises with journaling prompts that auto-save as you reflect. Each one builds toward your career breakthrough.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+        </div>
+        <div>
+          <h3>Vision Statement Builder</h3>
+          <p>Craft your personal vision with curated examples for inspiration and a commitment card to reference anytime.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </div>
+        <div>
+          <h3>Progress Tracking</h3>
+          <p>Visual journey map showing your progress through all 6 weeks with clear milestones and momentum indicators.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+        </div>
+        <div>
+          <h3>Weekly Reflections</h3>
+          <p>End each week with an AI-guided coaching conversation to integrate your insights and prepare for what's next.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+        </div>
+        <div>
+          <h3>Privacy First</h3>
+          <p>All your journal entries stay on your device with optional iCloud sync. Your career reflections are yours alone.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </div>
+        <div>
+          <h3>Export Your Journey</h3>
+          <p>Generate a comprehensive summary of your reflections, insights, and action plans to keep and share.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        </div>
+        <div>
+          <h3>Text-to-Speech</h3>
+          <p>Listen to content while commuting, exercising, or whenever it fits your schedule.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="author">
+  <div class="container">
+    <div class="section-label">Created by an expert</div>
+    <div class="section-title">Lisa Prior's proven <strong>VIEW Framework</strong></div>
+    <div class="author-content">
+      <p>Lisa Prior brings decades of experience as an executive coach and career development specialist. Her VIEW Framework — Vision, Insight, Engagement, Will — has helped thousands of professionals gain clarity and take charge of their careers.</p>
+      <p>This app makes her proven methodology, originally published as <em>Take Charge of Your VIEW</em> (2nd Edition), accessible and interactive for everyone.</p>
+      <div class="author-book">📖 Published by NeXus Impress</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="section-title">Start your reset <strong>today</strong></div>
+    <p class="cta-desc">Week 1 is completely free. Experience the framework, complete your first three Experiences, and see if it resonates. No commitment required.</p>
+    <a href="https://apps.apple.com/app/6-week-career-reset/id0000000000" class="cta-button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+      Download Free on the App Store
+    </a>
+    <p class="cta-price">Week 1 free · Full program $24.99 one-time purchase</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">6-Week Career Reset</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/support.html">Support</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2025 Lisa Prior / Prior Consulting. All rights reserved.<br>
+      Based on <em>Take Charge of Your VIEW</em> (2nd Edition), published by NeXus Impress.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+</body>
+</html>
